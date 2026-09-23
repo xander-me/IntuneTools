@@ -23,3 +23,7 @@ For lifecycle changes, test synthetic inventory and release responses before val
 ## Attribution
 
 [UpdateOSwithLog attribution](UpdateOSwithLog/README.md) credits Michael Niehaus for the original update script; this copy adds logging. Preserve existing script authorship and notices.
+
+## Current work and handoff
+
+Read [STATUS.md](STATUS.md) for current work, evidence, blockers and the next action. This README remains the project entry point; the handoff is a dated record and must be checked against live Git/issue state.
