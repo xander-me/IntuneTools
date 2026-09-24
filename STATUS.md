@@ -26,3 +26,11 @@ Checked live on 2026-09-23:
 - No pre-existing open PRs at inspection.
 
 The documentation rollout is on `docs/project-handoffs-14`, based on main `4d4edc80c349`. Find its current review in [pull requests](https://github.com/xander-me/IntuneTools/pulls). An open PR is not accepted delivery. Resolve the actual checkout with `git rev-parse --show-toplevel`; verify `git status --short`, branch/commit, fetched remote and live issue/PR state before resuming. The checkout was clean before this task; no pre-existing local work was moved or published. The rollout changes documentation only. Local/unpushed changes at later session boundaries must be recorded here explicitly.
+
+## 2026-09-24: Get-AutopilotHardwareHash
+
+- Added [Autopilot/Get-AutopilotHardwareHash](Autopilot/Get-AutopilotHardwareHash/README.md): silent hash collection and direct Intune import with group tag `GR_PC_DK` for ManageEngine Endpoint Central, requested by Alexander (not part of the Matas store project). Danish guide: [VEJLEDNING.md](Autopilot/Get-AutopilotHardwareHash/VEJLEDNING.md).
+- Design: no module downloads (MDM WMI + Graph REST), app-only auth with secret or certificate passed at run time, idempotent (already registered devices are skipped; optional group tag correction), local CSV fallback, explicit exit codes, 64-bit relaunch from 32-bit agents.
+- Tests: 14/14 Pester on Linux (PowerShell 7.6, Pester 5.7.1) with mocked WMI/Graph. **NOT RUN:** Windows PowerShell 5.1, real MDM WMI, ManageEngine execution, live Graph import.
+- Next action: run on one test PC (`-SkipUpload`, then with upload) as described in section 4 of the guide, then a small ManageEngine test group. Owner: Alexander.
+
